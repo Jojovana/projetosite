@@ -11,11 +11,11 @@
 <nav id="navbar" class="navbar">
   <ul>
     <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#about">Sobre Nós</a></li>
     <li><a href="#menu">Menu</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="#chefs">Chefs</a></li>
-    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#events">Eventos</a></li>
+    <li><a href="#chefs">Chefes</a></li>
+    <li><a href="#gallery">Galeria</a></li>
     <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
       <ul>
         <li><a href="#">Drop Down 1</a></li>

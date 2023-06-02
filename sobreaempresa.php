@@ -4,14 +4,14 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>About Us</h2>
-          <p>Learn More <span>About Us</span></p>
+          <h2>Sobre Nós</h2>
+          <p>Uma Parte contando <span>Sobre Nós</span></p>
         </div>
 
         <div class="row gy-4">
           <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
             <div class="call-us position-absolute">
-              <h4>Book a Table</h4>
+              <h4>Reservar uma mesa</h4>
               <p>+1 5589 55488 55</p>
             </div>
           </div>
