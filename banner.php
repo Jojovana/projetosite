@@ -1,6 +1,6 @@
 <?php
 
-$listarcliente = listarTodosRegistros();
+$listarcliente = listarTodosRegistros('*', 'banner', 'A');
 if ($listarcliente == 'Vazio') {
   echo '<h6 class="text-center mt-5 p-3 bg-danger text-white"> Nenhum registro cadastrado no banco de dados! </h6>';
 } else {

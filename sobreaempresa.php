@@ -1,3 +1,23 @@
+<?php
+
+$listarcliente = listarTodosRegistros('*', 'sobrenos', 'A');
+if ($listarcliente == 'Vazio') {
+  echo '<h6 class="text-center mt-5 p-3 bg-danger text-white"> Nenhum registro cadastrado no banco de dados! </h6>';
+} else {
+  foreach($listarcliente as $itemRetornoLista) {
+    $idsobrenos = $itemRetornoLista->idsobrenos;
+    $imagem = $itemRetornoLista->imagem;
+    $descricao = $itemRetornoLista->descricao;
+    $video = $itemRetornoLista->video;
+    $cadastro = $itemRetornoLista->cadastro;
+    $alteracao = $itemRetornoLista->alteracao;
+    $ativo = $itemRetornoLista->ativo;
+  }
+}
+
+?>
+
+
 <!--sobre a empresa-->
 
 <section id="about" class="about">
@@ -9,7 +29,7 @@
         </div>
 
         <div class="row gy-4">
-          <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
+          <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/<?php echo $imagem?>) ;" data-aos="fade-up" data-aos-delay="150">
             <div class="call-us position-absolute">
               <h4>Reservar uma mesa</h4>
               <p>+1 5589 55488 55</p>
@@ -32,8 +52,8 @@
               </p>
 
               <div class="position-relative mt-4">
-                <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                <img src="assets/img/dentinho.jpg" class="img-fluid" alt="">
+                <a href="<?php echo $video?>" class="glightbox play-btn"></a>
               </div>
             </div>
           </div>

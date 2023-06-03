@@ -1,3 +1,25 @@
+<?php
+
+$listarcliente = listarTodosRegistros('*', 'sobrenos', 'A');
+if ($listarcliente == 'Vazio') {
+  echo '<h6 class="text-center mt-5 p-3 bg-danger text-white"> Nenhum registro cadastrado no banco de dados! </h6>';
+} else {
+  foreach($listarcliente as $itemRetornoLista) {
+    $idsobrenos = $itemRetornoLista->idsobrenos;
+    $imagem = $itemRetornoLista->imagem;
+    $descricao = $itemRetornoLista->descricao;
+    $video = $itemRetornoLista->video;
+    $cadastro = $itemRetornoLista->cadastro;
+    $alteracao = $itemRetornoLista->alteracao;
+    $ativo = $itemRetornoLista->ativo;
+  }
+}
+
+?>
+
+
+
+
 <section id="chefs" class="chefs section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -11,7 +33,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="chef-member">
               <div class="member-img">
-                <img src="assets/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
+                <img src="assets/img/chefs/walterwhite.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>

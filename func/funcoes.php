@@ -28,10 +28,11 @@ function listarRegistroDoisParametro($tabela, $campos, $idcampo, $idparametro, $
     $conn = null;
 }
 
-function listarTodosRegistros(){
+function listarTodosRegistros($campos, $tabela, $ativo){
     $conn = conectar();
     try {
-        $sqlLista = $conn->prepare("SELECT idbanner, img, titulo, descricao, video, cadastro, alteracao, ativo FROM banner b");
+        $sqlLista = $conn->prepare("SELECT $campos FROM $tabela WHERE ativo = ?");
+        $sqlLista->bindValue(1, $ativo, PDO::PARAM_STR);
         $sqlLista->execute();
         if ($sqlLista->rowCount() > 0) {
             return $sqlLista->fetchAll(PDO::FETCH_OBJ);
@@ -44,3 +45,4 @@ function listarTodosRegistros(){
     };
     $conn = null;
 }
+

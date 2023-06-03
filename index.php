@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Jojo.restaurante</title>
+  <title>Jojo.</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="https://o.remove.bg/downloads/b680c52f-7d0d-4c71-b240-3bca7974863f/1500b66f4c85f46c32abc9b98b0f19d8-removebg-preview.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
