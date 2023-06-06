@@ -61,7 +61,7 @@ include_once '.\func\funcoes.php';
 
   <?php include_once "sobreaempresa.php"?>
 
-  <?php include_once "pqdaempresa.php"?>
+  <?php include_once "cards.php"?>
 
   <?php include_once "contagem.php"?>
 

@@ -31,7 +31,7 @@ function listarRegistroDoisParametro($tabela, $campos, $idcampo, $idparametro, $
 function listarTodosRegistros($campos, $tabela, $ativo){
     $conn = conectar();
     try {
-        $sqlLista = $conn->prepare("SELECT $campos FROM $tabela WHERE ativo = ?");
+        $sqlLista = $conn->prepare("SELECT $campos FROM $tabela WHERE ativo = ?  ");
         $sqlLista->bindValue(1, $ativo, PDO::PARAM_STR);
         $sqlLista->execute();
         if ($sqlLista->rowCount() > 0) {

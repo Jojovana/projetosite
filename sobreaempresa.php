@@ -1,3 +1,5 @@
+
+
 <?php
 
 $listarcliente = listarTodosRegistros('*', 'sobrenos', 'A');
@@ -12,11 +14,12 @@ if ($listarcliente == 'Vazio') {
     $cadastro = $itemRetornoLista->cadastro;
     $alteracao = $itemRetornoLista->alteracao;
     $ativo = $itemRetornoLista->ativo;
-  }
-}
-
+    $imagem2 = $itemRetornoLista->imagem2;
+    $descricao2 = $itemRetornoLista->descricao2;
+ }
+}  
+ 
 ?>
-
 
 <!--sobre a empresa-->
 
@@ -28,36 +31,37 @@ if ($listarcliente == 'Vazio') {
           <p>Uma Parte contando <span>Sobre Nós</span></p>
         </div>
 
+
         <div class="row gy-4">
           <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/<?php echo $imagem?>) ;" data-aos="fade-up" data-aos-delay="150">
             <div class="call-us position-absolute">
-              <h4>Reservar uma mesa</h4>
-              <p>+1 5589 55488 55</p>
+              <h4>Ouça o som</h4>
+              <p><a href="<?php echo $video?>" class="">AGORA MESMO</a></p>
             </div>
           </div>
           <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                <?php echo $descricao?>
               </p>
+              <p class="fst-italic">Alguns dos principais artistas do Rock</p>
               <ul>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                <li><i class="bi bi-check2-all"></i> Freddie Mercury.</li>
+                <li><i class="bi bi-check2-all"></i> Kurt Cobain.</li>
+                <li><i class="bi bi-check2-all"></i> Jimi Hendrix.</li>
               </ul>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                <?php echo $descricao2?>
               </p>
 
               <div class="position-relative mt-4">
-                <img src="assets/img/dentinho.jpg" class="img-fluid" alt="">
+                <img src="assets/img/<?php echo $imagem2?>" class="img-fluid" alt="">
                 <a href="<?php echo $video?>" class="glightbox play-btn"></a>
               </div>
             </div>
           </div>
         </div>
+
 
       </div>
     </section>
