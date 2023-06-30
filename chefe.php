@@ -34,6 +34,7 @@ $listarcliente = listarTodosRegistros('*', 'chefe', 'A');
             $alteracao = $itemRetornoLista->alteracao;
             $ativo = $itemRetornoLista->ativo;
             $img = $itemRetornoLista->img;
+            $insta =  $itemRetornoLista->insta;
           
         
         ?>
@@ -45,7 +46,7 @@ $listarcliente = listarTodosRegistros('*', 'chefe', 'A');
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="<?php echo $insta?>"><i class="bi bi-instagram"></i></a>
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>

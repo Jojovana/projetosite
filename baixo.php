@@ -1,3 +1,23 @@
+<?php
+
+$listarcliente = listarTodosRegistros('*', 'endereco', 'A');
+if ($listarcliente == 'Vazio') {
+  echo '<h6 class="text-center mt-5 p-3 bg-danger text-white"> Nenhum registro cadastrado no banco de dados! </h6>';
+} else {
+  foreach($listarcliente as $itemRetornoLista) {
+    $idendereco = $itemRetornoLista->idendereco;
+    $endereco = $itemRetornoLista->endereco;
+    $mapa = $itemRetornoLista->mapa;
+    $numero = $itemRetornoLista->numero;
+    $email = $itemRetornoLista->email;
+    $horario = $itemRetornoLista->horario;
+    $twitter = $itemRetornoLista->twitter;
+    $insta = $itemRetornoLista->insta;
+  }
+}
+
+?>
+
 <footer id="footer" class="footer">
 
 <div class="container">
@@ -7,8 +27,7 @@
       <div>
         <h4>Address</h4>
         <p>
-          A108 Adam Street <br>
-          New York, NY 535022 - US<br>
+          <?php echo $endereco?><br>
         </p>
       </div>
 
@@ -19,8 +38,8 @@
       <div>
         <h4>Reservations</h4>
         <p>
-          <strong>Phone:</strong> +1 5589 55488 55<br>
-          <strong>Email:</strong> info@example.com<br>
+          <strong>Tel:</strong> <?php echo $numero?><br>
+          <strong>Email:</strong> <?php echo $email?><br>
         </p>
       </div>
     </div>
@@ -28,20 +47,20 @@
     <div class="col-lg-3 col-md-6 footer-links d-flex">
       <i class="bi bi-clock icon"></i>
       <div>
-        <h4>Opening Hours</h4>
+        <h4>Horário de Atendimento</h4>
         <p>
-          <strong>Mon-Sat: 11AM</strong> - 23PM<br>
-          Sunday: Closed
+          <strong><?php echo $horario?> </strong> <br>
+          Sábado: Fechado
         </p>
       </div>
     </div>
 
     <div class="col-lg-3 col-md-6 footer-links">
-      <h4>Follow Us</h4>
+      <h4>Siga-nos</h4>
       <div class="social-links d-flex">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="<?php echo $twitter?>" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="<?php echo $insta?>" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
       </div>
     </div>

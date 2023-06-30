@@ -1,4 +1,27 @@
 <?php
+
+
+function listarTodosRegistros($campos, $tabela, $ativo)
+{
+    $conn = conectar();
+    try {
+        $sqlLista = $conn->prepare("SELECT $campos FROM $tabela WHERE ativo = ?  ");
+        $sqlLista->bindValue(1, $ativo, PDO::PARAM_STR);
+        $sqlLista->execute();
+        if ($sqlLista->rowCount() > 0) {
+            return $sqlLista->fetchAll(PDO::FETCH_OBJ);
+        } else {
+            return 'Vazio';
+        }
+        ;
+    } catch
+    (PDOException $e) {
+        return ($e->getMessage());
+    }
+    ;
+    $conn = null;
+}
+
 function listarRegistroDoisParametro($tabela, $campos, $idcampo, $idparametro, $idCampo2, $idparametro2, $ativo)
 {
     $conn = conectar();
@@ -15,7 +38,8 @@ function listarRegistroDoisParametro($tabela, $campos, $idcampo, $idparametro, $
                 return $sqlLista->fetchAll(PDO::FETCH_OBJ);
             } else {
                 return 'Vazio';
-            };
+            }
+            ;
         } else {
             return 'Variável Não é aceita!';
         }
@@ -24,25 +48,112 @@ function listarRegistroDoisParametro($tabela, $campos, $idcampo, $idparametro, $
         echo 'Exception -> ';
         return ($e->getMessage());
         $conn->rollback();
-    };
+    }
+    ;
     $conn = null;
 }
 
-function listarTodosRegistros($campos, $tabela, $ativo){
+function listarRegistroDoisParametro2($tabela, $campos, $idcampo, $idparametro, $ativo)
+{
     $conn = conectar();
     try {
-        $sqlLista = $conn->prepare("SELECT $campos FROM $tabela WHERE ativo = ?  ");
-        $sqlLista->bindValue(1, $ativo, PDO::PARAM_STR);
-        $sqlLista->execute();
-        if ($sqlLista->rowCount() > 0) {
-            return $sqlLista->fetchAll(PDO::FETCH_OBJ);
+        if (is_numeric($idparametro)) {
+            $conn->beginTransaction();
+            $sqlLista = $conn->prepare("SELECT $campos "
+                . "FROM $tabela "
+                . "WHERE $idcampo = ? AND ativo = '$ativo' ");
+            $sqlLista->bindValue(1, $idparametro, PDO::PARAM_INT);
+            $sqlLista->execute();
+            if ($sqlLista->rowCount() > 0) {
+                return $sqlLista->fetchAll(PDO::FETCH_OBJ);
+            } else {
+                return 'Vazio';
+            }
+            ;
         } else {
-            return 'Vazio';
-        };
-    }catch
+            return 'Variável Não é aceita!';
+        }
+    } catch
     (PDOException $e) {
+        echo 'Exception -> ';
         return ($e->getMessage());
-    };
+        $conn->rollback();
+    }
+    ;
     $conn = null;
 }
 
+function listarRegistroDoisParametro2A($tabela, $campos, $idcampo, $idparametro, $ativo)
+{
+    $conn = conectar();
+    try {
+            $conn->beginTransaction();
+            $sqlLista = $conn->prepare("SELECT $campos "
+                . "FROM $tabela "
+                . "WHERE $idcampo = ? AND ativo = '$ativo' ");
+            $sqlLista->bindValue(1, $idparametro, PDO::PARAM_STR);
+            $sqlLista->execute();
+            if ($sqlLista->rowCount() > 0) {
+                return $sqlLista->fetchAll(PDO::FETCH_OBJ);
+            } else {
+                return 'Vazio';
+            }
+            ;
+    } catch
+    (PDOException $e) {
+        echo 'Exception -> ';
+        return ($e->getMessage());
+        $conn->rollback();
+    }
+    ;
+    $conn = null;
+}
+
+function inserirRegistrosReturnId($tabela, $campos, $valores)
+{
+    $conn = conectar();
+    try {
+        $conn->beginTransaction();
+        $sqlLista = $conn->prepare("INSERT INTO $tabela ($campos) VALUES ($valores, NOW())");
+        $resul = $sqlLista->execute();
+        if ($resul === false) {
+            $conn->rollback();
+            return false;
+        } else {
+            $id = $conn->lastInsertId();
+            return $id;
+        }
+        ;
+    } catch
+    (PDOException $e) {
+        echo 'Exception -> ';
+        return ($e->getMessage());
+        $conn->rollback();
+    }
+    ;
+    $conn = null;
+}
+
+function inserirRegistros($tabela, $campos, $valores)
+{
+    $conn = conectar();
+    try {
+        $conn->beginTransaction();
+        $sqlLista = $conn->prepare("INSERT INTO $tabela ($campos) VALUES ($valores, NOW())");
+        $resul = $sqlLista->execute();
+        if ($resul === false) {
+            $conn->rollback();
+            return false;
+        } else {
+            return true;
+        }
+        ;
+    } catch
+    (PDOException $e) {
+        echo 'Exception -> ';
+        return ($e->getMessage());
+        $conn->rollback();
+    }
+    ;
+    $conn = null;
+}

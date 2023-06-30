@@ -29,15 +29,12 @@ $listarcliente = listarTodosRegistros('*', 'eventos', 'A');
           echo '<h6 class="text-center mt-5 p-3 bg-danger text-white"> Nenhum registro cadastrado no banco de dados! </h6>';
         } else {
           foreach($listarcliente as $itemRetornoLista) {
-            $ideventos = $itemRetornoLista->ideventos;
+          
             $img = $itemRetornoLista->img;
             $titulo = $itemRetornoLista->titulo;
             $descricao = $itemRetornoLista->descricao;
             $preco = $itemRetornoLista->preco;
-            $cadastro = $itemRetornoLista->cadastro;
-            $alteracao = $itemRetornoLista->alteracao;
-            $ativo = $itemRetornoLista->ativo;
-        
+          
           
         
         ?>

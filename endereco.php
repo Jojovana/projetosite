@@ -1,13 +1,35 @@
+<?php
+
+$listarcliente = listarTodosRegistros('*', 'endereco', 'A');
+if ($listarcliente == 'Vazio') {
+  echo '<h6 class="text-center mt-5 p-3 bg-danger text-white"> Nenhum registro cadastrado no banco de dados! </h6>';
+} else {
+  foreach($listarcliente as $itemRetornoLista) {
+    $idendereco = $itemRetornoLista->idendereco;
+    $endereco = $itemRetornoLista->endereco;
+    $mapa = $itemRetornoLista->mapa;
+    $numero = $itemRetornoLista->numero;
+    $email = $itemRetornoLista->email;
+    $horario = $itemRetornoLista->horario;
+    
+  }
+}
+
+?>
+
+
+
 <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Contact</h2>
-          <p>Need Help? <span>Contact Us</span></p>
+          <h2>Contato</h2>
+          <p>Precisa de Ajuda? <span>Entre em Contato</span></p>
         </div>
+       
 
         <div class="mb-3">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3775.328394136329!2d-41.976567499999994!3d-18.872507199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb1a63e57ea4b7b%3A0x56592d4244574c9c!2sR.%20Frutal%2C%20449%20-%20Kennedy%2C%20Gov.%20Valadares%20-%20MG%2C%2035051-230!5e0!3m2!1spt-BR!2sbr!4v1685495819730!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3775.3285088722027!2d-41.97914778840256!3d-18.872502106179528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb1a63e57ea4b7b%3A0x56592d4244574c9c!2sR.%20Frutal%2C%20449%20-%20Kennedy%2C%20Gov.%20Valadares%20-%20MG%2C%2035051-230!5e0!3m2!1spt-BR!2sbr!4v1687989566642!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             
           </div><!-- End Google Maps -->
 
@@ -17,8 +39,8 @@
             <div class="info-item  d-flex align-items-center">
               <i class="icon bi bi-map flex-shrink-0"></i>
               <div>
-                <h3>Our Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <h3>Endereço</h3>
+                <p><?php echo $endereco?></p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -27,8 +49,8 @@
             <div class="info-item d-flex align-items-center">
               <i class="icon bi bi-envelope flex-shrink-0"></i>
               <div>
-                <h3>Email Us</h3>
-                <p>contact@example.com</p>
+                <h3>Email</h3>
+                <p><?php echo $email?></p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -37,8 +59,8 @@
             <div class="info-item  d-flex align-items-center">
               <i class="icon bi bi-telephone flex-shrink-0"></i>
               <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
+                <h3>Número</h3>
+                <p><?php echo $numero?></p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -47,9 +69,9 @@
             <div class="info-item  d-flex align-items-center">
               <i class="icon bi bi-share flex-shrink-0"></i>
               <div>
-                <h3>Opening Hours</h3>
-                <div><strong>Mon-Sat:</strong> 11AM - 23PM;
-                  <strong>Sunday:</strong> Closed
+                <h3>Horário de atendimento</h3>
+                <div><strong>Domingo-Sexta:</strong> <?php echo $horario?>
+                  <strong>Sabado:</strong> Fechado
                 </div>
               </div>
             </div>
@@ -77,7 +99,7 @@
             <div class="error-message"></div>
             <div class="sent-message">Your message has been sent. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
+          <div class="text-center"><button type="submit">Envie uma mensagem</button></div>
         </form><!--End Contact Form -->
 
       </div>
