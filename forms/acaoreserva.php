@@ -4,13 +4,14 @@ include_once '..\func\funcoes.php';
 include_once '..\config\constantes.php';
 include_once '..\config\conexao.php';
 
-$_POST['name'] = 'AAA';
-$_POST['email'] = 'AAA';
-$_POST['phone'] = 'AAA';
-$_POST['date'] = 'AAA';
-$_POST['time'] = 'AAA';
-$_POST['people'] = 'AAA';
-$_POST['message'] = 'AAA';
+
+// $_POST['name'] = 'AAA';
+// $_POST['email'] = '';
+// $_POST['phone'] = 'AAA';
+// $_POST['date'] = '2023-05-13';
+// $_POST['time'] = '18:30:00';
+// $_POST['people'] = '2';
+// $_POST['message'] = 'AAA';
 
 
 if (isset ($_POST['name']) && !empty($_POST['name'])){
@@ -64,17 +65,17 @@ if (isset ($_POST['message'])){
 }
 
 $listar = listarRegistroDoisParametro2A('pessoa', 'email', 'email', $email, 'A');
-var_dump($listar);
+// var_dump($listar);
 
 if ($listar == 'Vazio') {
     $idpessoa = inserirRegistrosReturnId('pessoa', 'nome, email, tel, cadastro', "'$nome','$email','$tel'");
-    var_dump($idpessoa);
+    // var_dump($idpessoa);
     if ($idpessoa === false) {
         echo 'Não deu certo';
         exit();
     } else {
-        $registro = inserirRegistros('reserva', 'data, horario, numeropes, comentario, idpessoa, cadastro', "'$data','$horario','$numeropes','$mensagem', $idpessoa");
-        var_dump($registro);
+        $registro = inserirRegistros('reserva', 'datar, horario, numeropes, comentario, idpessoa, cadastro', "'$data','$horario','$numeropes','$mensagem', $idpessoa");
+        // var_dump($registro);
         if ($registro === false) {
             echo 'Deu certo não irmão';
             exit();

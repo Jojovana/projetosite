@@ -19,7 +19,6 @@ function listarTodosRegistros($campos, $tabela, $ativo)
         return ($e->getMessage());
     }
     ;
-    $conn = null;
 }
 
 function listarRegistroDoisParametro($tabela, $campos, $idcampo, $idparametro, $idCampo2, $idparametro2, $ativo)
@@ -47,10 +46,8 @@ function listarRegistroDoisParametro($tabela, $campos, $idcampo, $idparametro, $
     (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
-        $conn->rollback();
     }
     ;
-    $conn = null;
 }
 
 function listarRegistroDoisParametro2($tabela, $campos, $idcampo, $idparametro, $ativo)
@@ -77,10 +74,8 @@ function listarRegistroDoisParametro2($tabela, $campos, $idcampo, $idparametro, 
     (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
-        $conn->rollback();
     }
     ;
-    $conn = null;
 }
 
 function listarRegistroDoisParametro2A($tabela, $campos, $idcampo, $idparametro, $ativo)
@@ -103,17 +98,14 @@ function listarRegistroDoisParametro2A($tabela, $campos, $idcampo, $idparametro,
     (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
-        $conn->rollback();
     }
     ;
-    $conn = null;
 }
 
 function inserirRegistrosReturnId($tabela, $campos, $valores)
 {
     $conn = conectar();
     try {
-        $conn->beginTransaction();
         $sqlLista = $conn->prepare("INSERT INTO $tabela ($campos) VALUES ($valores, NOW())");
         $resul = $sqlLista->execute();
         if ($resul === false) {
@@ -128,17 +120,14 @@ function inserirRegistrosReturnId($tabela, $campos, $valores)
     (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
-        $conn->rollback();
     }
     ;
-    $conn = null;
 }
 
 function inserirRegistros($tabela, $campos, $valores)
 {
     $conn = conectar();
     try {
-        $conn->beginTransaction();
         $sqlLista = $conn->prepare("INSERT INTO $tabela ($campos) VALUES ($valores, NOW())");
         $resul = $sqlLista->execute();
         if ($resul === false) {
@@ -152,8 +141,6 @@ function inserirRegistros($tabela, $campos, $valores)
     (PDOException $e) {
         echo 'Exception -> ';
         return ($e->getMessage());
-        $conn->rollback();
     }
     ;
-    $conn = null;
 }
